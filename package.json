@@ -1,0 +1,42 @@
+{
+  "name": "ros-package-variable",
+  "displayName": "ROS Package Variable",
+  "description": "ROS package variables for launch.json and tasks.json",
+  "publisher": "zoneorz",
+  "license": "MIT",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.37.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "command",
+    "variable",
+    "launch",
+    "tasks",
+    "ros"
+  ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#000080",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onCommand:extension.rosPackageName"
+  ],
+  "contributes": {},
+  "main": "./extension.js",
+  "homepage": "https://github.com/zoneorz/ros-package-variable",
+  "bugs": {
+    "url": "https://github.com/zoneorz/ros-package-variable/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zoneorz/ros-package-variable.git"
+  },
+  "dependencies": {
+    "xml2js": "^0.4.23"
+  }
+}
