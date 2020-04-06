@@ -54,7 +54,7 @@ An example `tasks.json` :
     "tasks": [{
             "label": "catkin build active package",
             "type": "shell",
-            "command": "catkin build {command:extension.rosPackageName}",
+            "command": "catkin build ${command:extension.rosPackageName}",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
