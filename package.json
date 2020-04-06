@@ -4,7 +4,7 @@
   "description": "ROS package variables for launch.json and tasks.json",
   "publisher": "zoneorz",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.37.0"
   },
