@@ -38,7 +38,7 @@ An example `launch.json` :
     {
       "id": "rosPackageName",
       "type": "command",
-      "command": "extention.rosPackageName",
+      "command": "extension.rosPackageName",
       "args":{}
     }
   ]
