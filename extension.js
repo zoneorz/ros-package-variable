@@ -1,6 +1,7 @@
 const vscode = require('vscode');
 const fs = require('fs');
 const xml2js = require('xml2js');
+const Path = require('path');
 
 function activate(context) {
   const errorMessage = (msg, noObject) => { vscode.window.showErrorMessage(msg); return noObject ? noObject : "Unknown"; };
@@ -34,8 +35,10 @@ function activate(context) {
       const fileFolder = activeTextEditorVariable(editor => {
         const path = editor.document.uri.path;
         const lastSep = path.lastIndexOf('/');
+        const lastd = path.lastIndexOf(':') -1;
         if (lastSep === -1) { return "Unknown"; }
-        return path.substring(0, lastSep);
+        if (lastd < 0) { lastd = 0; }
+        return path.substring(lastd, lastSep);
       });
       const workspaceFolder = activeWorkspaceFolder( workspaceFolder => {
         return workspaceFolder.uri.path;
@@ -46,9 +49,9 @@ function activate(context) {
 
       let packageFolder = fileFolder;
       while (workspaceFolder.length < packageFolder.length) {
-        if (fileExists(packageFolder + '/package.xml')) {
+        if (fileExists(Path.join(packageFolder, 'package.xml'))) {
           try {
-            xml2js.parseString(fs.readFileSync(packageFolder + '/package.xml'), (err, result) => {
+            xml2js.parseString(fs.readFileSync(Path.join(packageFolder, 'package.xml')), (err, result) => {
               if (err) { throw err };
               packageName = result.package.name[0];
             });
